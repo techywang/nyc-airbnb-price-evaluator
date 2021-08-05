@@ -1,0 +1,5 @@
+setwd("C:/Users/fpsto/Documents/School/Fall_2019/Stat_ML/Project/new-york-city-airbnb-open-data")
+nyc_data <- read.csv("AB_NYC_2019.csv", header = T)
+library(ggplot2)
+my_plot <- ggplot(data = nyc_data[nyc_data$price < 700,], aes(price, fill = room_type)) + geom_histogram(alpha = .2, bins = 10) + labs(title = "Room Type Frequencies at\n Different Price Levels" ) + xlab(label = "Price") + ylab(label = "Count") 
+my_plot + scale_fill_discrete(name = "Room Type", labels = c("Entire Home or Apartment", "Private Room", "Shared Room"))
